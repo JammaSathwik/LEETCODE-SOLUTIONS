@@ -1,0 +1,14 @@
+class Solution 
+{
+public:
+    int divide(int dividend, int divisor) 
+    {
+        long long mul = 1,ans,D=dividend,d=divisor;
+        if(dividend<0 && divisor>0) mul=-1;
+        if(dividend>0 && divisor<0) mul=-1;
+        ans=mul*abs(D/d);
+        if(mul*abs(D/d)>INT_MAX || mul*abs(D/d)<INT_MIN)
+            ans = INT_MAX;
+        return ans;
+    }
+};
