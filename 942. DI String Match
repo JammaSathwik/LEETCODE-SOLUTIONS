@@ -1,0 +1,14 @@
+class Solution {
+public:
+    vector<int> diStringMatch(string s) {
+        vector<int> x;
+        int a=0,b=s.length(),i;
+        for(i=0;i<s.length();i++)
+        {
+            if(s[i]=='I') x.push_back(a++);
+            else x.push_back(b--);
+        }
+        x.push_back(a);
+        return x;
+    }
+};
