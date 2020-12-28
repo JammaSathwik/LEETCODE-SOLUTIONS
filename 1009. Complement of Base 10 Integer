@@ -1,0 +1,9 @@
+class Solution 
+{
+public:
+    int bitwiseComplement(int N)
+    {
+        if(N<=1) return 1-N;
+        return pow(2,floor(log2(2*N)))-1-N;
+    }
+};
