@@ -1,0 +1,25 @@
+class Solution 
+{
+public:
+    vector<int> getSumAbsoluteDifferences(vector<int>& nums) 
+    {
+        int i,n=nums.size(),s=0;
+        vector<int> x(n,0),y(n,0),z;
+        for(i=0;i<n;i++)
+        {
+            s=s+nums[i];
+            x[i]=s;
+        }
+        s=0;
+        for(i=n-1;i>=0;i--)
+        {
+            s=s+nums[i];
+            y[i]=s;
+        }
+        for(i=0;i<n;i++)
+        {
+            z.push_back(nums[i]*(i+1)-x[i]+y[i]-nums[i]*(n-i));
+        }
+        return z;
+    }
+};
