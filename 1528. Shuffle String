@@ -1,0 +1,17 @@
+class Solution {
+public:
+    string restoreString(string s, vector<int>& indices) {
+        map<int,char> mp;
+        int i;
+        string x="";
+        for(i=0;i<s.length();i++)
+        {
+            mp[indices[i]]=s[i];
+        }
+        for(i=0;i<s.length();i++)
+        {
+            x=x+mp[i];
+        }
+        return x;
+    }
+};
