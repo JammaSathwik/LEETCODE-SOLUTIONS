@@ -1,0 +1,19 @@
+class Solution 
+{
+public:
+    void fill(TreeNode* root,vector<int>& x)
+    {
+        if(root!=NULL)
+        {
+            fill(root->left,x);
+            x.push_back(root->val);
+            fill(root->right,x);
+        }
+    }
+    vector<int> inorderTraversal(TreeNode* root) 
+    {
+        vector<int> x;
+        fill(root,x);
+        return x;
+    }
+};
