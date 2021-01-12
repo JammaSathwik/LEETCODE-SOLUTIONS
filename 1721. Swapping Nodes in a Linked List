@@ -1,0 +1,42 @@
+class Solution 
+{
+public:
+    int length(ListNode* head)
+    {
+        if(head==NULL) return 0;
+        ListNode* x = head;
+        int y=0;
+        while(x!=NULL)
+        {
+            x=x->next;
+            y++;
+        }
+        return y;
+    }
+    ListNode* swapNodes(ListNode* head, int k) 
+    {
+        if(head==NULL || head->next==NULL) return head;
+        int l = length(head);
+        ListNode* x = head;
+        int i,a,b;
+        for(i=0;i<k-1;i++)
+        {
+            x=x->next;
+        }
+        a=x->val;
+        x=head;
+        for(i=0;i<l-k;i++)
+        {
+            x=x->next;
+        }
+        b=x->val;
+        x->val=a;
+        x=head;
+        for(i=0;i<k-1;i++)
+        {
+            x=x->next;
+        }
+        x->val=b;
+        return head;
+    }
+};
