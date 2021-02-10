@@ -1,0 +1,22 @@
+class Solution 
+{
+public:
+    int height(TreeNode* root)
+    {
+        if(root==NULL) return 0;
+        if(root->right==NULL && root->left==NULL) return 1;
+        return 1 + max( height(root->left) , height(root->right) );
+    }
+    int sum(TreeNode* root,int h)
+    {
+        if(root==NULL) return 0;
+        if(h==1) return root->val;
+        return sum(root->left,h-1)+sum(root->right,h-1);
+    }
+    int deepestLeavesSum(TreeNode* root)
+    {
+        int h = height(root);
+        int s = sum(root,h);
+        return s;
+    }
+};
