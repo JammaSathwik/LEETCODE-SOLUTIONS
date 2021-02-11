@@ -1,0 +1,35 @@
+class Solution {
+public:
+    int height(TreeNode* root){
+        if(root==NULL) return 0;
+        if(root->right==NULL && root->left==NULL) return 1;
+        return 1+max(height(root->left),height(root->right));
+    }
+    void fill(vector<vector<int>>& a,TreeNode* root,int x){
+        if(root!=NULL){
+            a[x].push_back(root->val);
+            fill(a,root->left,x+1);
+            fill(a,root->right,x+1);
+        }
+    }
+    void update(vector<vector<int>>& a)
+    {
+        int n = a.size();
+        for(int i=1;i<n;i=i+2)
+        {
+            reverse(a[i].begin(),a[i].end());
+        }
+    }
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        vector<vector<int>> a;
+        int h = height(root);
+        while(h--)
+        {
+            vector<int> b;
+            a.push_back(b);
+        }
+        fill(a,root,0);
+        update(a);
+        return a;
+    }
+};
