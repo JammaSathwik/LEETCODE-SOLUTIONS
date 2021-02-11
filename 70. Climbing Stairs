@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int climbStairs(int n) {
+        int i,a[45];
+        a[0]=1;
+        a[1]=2;
+        for(i=2;i<45;i++)
+        {
+            a[i]=a[i-1]+a[i-2];
+        }
+        return a[n-1];
+    }
+};
