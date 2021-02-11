@@ -1,0 +1,17 @@
+class Solution {
+public:
+    void fill(TreeNode* root,vector<int> &a,int x)
+    {
+        if(root!=NULL)
+        {
+            if(x==a.size())  a.push_back(root->val);
+            fill(root->right,a,x+1);
+            fill(root->left,a,x+1);
+        }
+    }
+    vector<int> rightSideView(TreeNode* root) {
+        vector<int> a;
+        fill(root,a,0);
+        return a;
+    }
+};
