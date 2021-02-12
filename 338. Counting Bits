@@ -1,0 +1,15 @@
+class Solution 
+{
+public:
+    vector<int> countBits(int num) 
+    {
+        vector<int> a(num+1,0);
+        int i;
+        for(i=1;i<=num;i++)
+        {
+            if(log2(i)==floor(log2(i))) a[i]=1;
+            else a[i]=1+a[i-pow(2,floor(log2(i)))];
+        }
+        return a;
+    }
+};
