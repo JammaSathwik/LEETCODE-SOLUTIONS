@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int largestPerimeter(vector<int>& A) {
+        sort(A.begin(),A.end());
+        int i,j,s=0,k;
+        for(k=A.size()-1;k>=2;k--)
+        {
+            if(A[k-2]+A[k-1]>A[k])
+            {
+                s=max(s,A[k-2]+A[k-1]+A[k]);
+            }
+        }
+        return s;
+    }
+};
