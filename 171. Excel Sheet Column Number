@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int titleToNumber(string s) {
+        int x,sum=0,y;
+        for(x=0;x<s.length();x++)
+        {
+            y=s[x]-64;
+            sum=26*sum+y;
+        }
+        return sum;
+    }
+};
