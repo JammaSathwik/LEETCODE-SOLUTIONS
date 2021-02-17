@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> sortByBits(vector<int>& arr) {
+        sort(arr.begin(),arr.end(),[&](int a,int b){
+            int x=a,y=b,m=0,n=0;
+            while(x)
+            {
+                if(x%2==1) m++;
+                x=x/2;
+            }
+            while(y)
+            {
+                if(y%2==1) n++;
+                y=y/2;
+            }
+            if(m==n) return a<b;
+            return m<n;
+        });
+        return arr;
+    }
+};
