@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int height(TreeNode* root)
+    {
+        if(root==NULL) return 0;
+        if(root->left==NULL && root->right==NULL) return 1;
+        return 1+max(height(root->left),height(root->right));
+    }
+    int diameterOfBinaryTree(TreeNode* root) {
+        if(root==NULL) return 0;
+        int s=0;
+        s=max(s,height(root->left)+height(root->right));
+        s=max(s,diameterOfBinaryTree(root->left));
+        s=max(s,diameterOfBinaryTree(root->right));
+        return s;
+    }
+};
