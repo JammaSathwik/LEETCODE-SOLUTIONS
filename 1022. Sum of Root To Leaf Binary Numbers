@@ -1,0 +1,19 @@
+class Solution {
+public:
+    void calculate(TreeNode* root,int x,int& s)
+    {
+        if(root==NULL) return;
+        if(root->left==NULL && root->right==NULL) s=s+x+root->val;
+        else 
+        {
+            calculate(root->left,2*(root->val+x),s);
+            calculate(root->right,2*(root->val+x),s);
+        }
+    }
+    int sumRootToLeaf(TreeNode* root) {
+        if(root==NULL) return 0;
+        int x=0,s=0;
+        calculate(root,x,s);
+        return s;
+    }
+};
