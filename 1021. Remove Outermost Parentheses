@@ -1,0 +1,21 @@
+class Solution {
+public:
+    string removeOuterParentheses(string S) {
+        string ans;
+        int x=0,i;
+        for(i=0;i<S.length();i++)
+        {
+            if(S[i]=='(') 
+            {
+                x++;
+                if(x!=1) ans=ans+S[i];
+            }
+            else
+            {
+                x--;
+                if(x!=0) ans=ans+S[i];
+            }
+        }
+        return ans;
+    }
+};
