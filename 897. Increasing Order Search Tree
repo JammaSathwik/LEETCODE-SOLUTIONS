@@ -1,0 +1,17 @@
+class Solution {
+public:
+    TreeNode* increasingBST(TreeNode* root) {
+        if(root==NULL) return nullptr;
+        if(root->left==NULL) 
+        {
+            root->right = increasingBST(root->right);
+            return root;
+        }
+        TreeNode* x = root->left;
+        TreeNode* y = x;
+        while(y->right!=NULL) y=y->right;
+        root->left=NULL;
+        y->right=root;
+        return increasingBST(x);
+    }
+};
