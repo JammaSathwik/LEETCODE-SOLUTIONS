@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int height(TreeNode* root)
+    {
+        if(root==NULL) return 0;
+        if(root->left==NULL && root->right==NULL) return 1;
+        return 1+max(height(root->left),height(root->right));
+    }
+    void fill(TreeNode* root,vector<double>& count,vector<double>& sum,int x)
+    {
+        if(root!=NULL)
+        {
+            sum[x]=sum[x]+root->val;
+            count[x]++;
+            fill(root->left,count,sum,x+1);
+            fill(root->right,count,sum,x+1);
+        }
+    }
+    vector<double> averageOfLevels(TreeNode* root) {
+        int n = height(root),i;
+        vector<double> count(n,0);
+        vector<double> sum(n,0);
+        vector<double> ans(n,0);
+        fill(root,count,sum,0);
+        for(i=0;i<n;i++)
+        {
+            ans[i]=sum[i]/count[i];
+        }
+        return ans;
+    }
+};
