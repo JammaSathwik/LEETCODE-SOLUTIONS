@@ -1,0 +1,17 @@
+class Solution {
+public:
+    void fill(TreeNode* root,vector<int>& x)
+    {
+        if(root==NULL) return;
+        if(root->left==NULL && root->right==NULL) x.push_back(root->val);
+        fill(root->left,x);
+        fill(root->right,x);
+    }
+    bool leafSimilar(TreeNode* root1, TreeNode* root2) {
+        vector<int> res1,res2;
+        fill(root1,res1);
+        fill(root2,res2);
+        if(res1==res2) return true;
+        return false;
+    }
+};
