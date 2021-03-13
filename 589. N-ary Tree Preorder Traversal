@@ -1,0 +1,17 @@
+class Solution {
+public:
+    void fill(Node* root,vector<int>& x)
+    {
+        if(root==NULL) return ;
+        x.push_back(root->val);
+        for(int i=0;i<root->children.size();i++)
+        {
+            fill(root->children[i],x);
+        }
+    }
+    vector<int> preorder(Node* root) {
+        vector<int> x;
+        fill(root,x);
+        return x;
+    }
+};
