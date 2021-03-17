@@ -1,0 +1,2 @@
+select distinct P.Email from Person P where
+(select count(*) from Person Y where Y.Email=P.Email)>1;
