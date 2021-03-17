@@ -1,0 +1,19 @@
+class Solution {
+public:
+    void fill(TreeNode* root,map<int,int>& mp){
+        if(root!=NULL) {
+            mp[root->val]=1;
+            fill(root->left,mp);
+            fill(root->right,mp);
+        }
+    }
+    bool findTarget(TreeNode* root, int k) {
+        map<int,int> mp;
+        fill(root,mp);
+        for(auto i=mp.begin();i!=mp.end();++i)
+        {
+            if(mp.find(k-i->first)!=mp.end() && 2*(i->first)!=k) return true;
+        }
+        return false;
+    }
+};
