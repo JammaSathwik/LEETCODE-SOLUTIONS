@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool issquare(int x)
+    {
+        return sqrt(x)==floor(sqrt(x));
+    }
+    bool judgeSquareSum(int c) {
+        if(c==0) return true;
+        int i=1;
+        for(i=1;i<=sqrt(c);i++)
+        {
+            if(issquare(c-i*i)) return true;
+        }
+        return false;
+    }
+};
