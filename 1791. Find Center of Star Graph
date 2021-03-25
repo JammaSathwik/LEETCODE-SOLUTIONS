@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int findCenter(vector<vector<int>>& edges) {
+        int i,j;
+        map<int,int> mp;
+        for(i=0;i<edges.size();i++)
+        {
+            if(mp.find(edges[i][0])==mp.end()) mp[edges[i][0]]=1;
+            else mp[edges[i][0]]+=1;
+            if(mp.find(edges[i][1])==mp.end()) mp[edges[i][1]]=1;
+            else mp[edges[i][1]]+=1;
+        }
+        for(i=1;i<=edges.size()+1;i++)
+        {
+            if(mp[i]==edges.size()) return i;
+        }
+        return -1;
+    }
+};
