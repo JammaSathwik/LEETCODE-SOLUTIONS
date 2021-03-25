@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int findJudge(int N, vector<vector<int>>& trust) {
+        map<int,int> mp1,mp2;
+        int i,j;
+        for(i=0;i<trust.size();i++)
+        {
+            if(mp1.find(trust[i][0])==mp1.end()) mp1[trust[i][0]]=1;
+            else mp1[trust[i][0]]=1+mp1[trust[i][0]];
+            if(mp2.find(trust[i][1])==mp2.end()) mp2[trust[i][1]]=1;
+            else mp2[trust[i][1]]=1+mp2[trust[i][1]];
+        }
+        for(i=1;i<=N;i++)
+        {
+            if(mp1.find(i)==mp1.end() && mp2[i]==N-1) return i;
+        }
+        return -1;
+    }
+};
